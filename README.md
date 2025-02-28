@@ -13,3 +13,7 @@ sudo apt update
 sudo apt install obs-studio
 ```
 
+# To input something like in terminal just type:
+```php
+node -e "console.log('Hello world');"
+```
