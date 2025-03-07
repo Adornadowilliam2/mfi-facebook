@@ -17,3 +17,8 @@ sudo apt install obs-studio
 ```php
 node -e "console.log('Hello world');"
 ```
+
+# Delete manually if sudo dpkg --configure -a
+```php
+sudo rm /var/lib/dpkg/updates/0023
+```
