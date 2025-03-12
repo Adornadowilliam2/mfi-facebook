@@ -224,6 +224,19 @@
     <button id="backToTopBtn" class="btn btn-primary" style="display:none; position: fixed; bottom: 20px; right: 20px; z-index: 1000;">
         Back to Top
       </button>
+      <button id="openModal" class="btn btn-success" style=" position: fixed; bottom: 20px; left: 20px; z-index: 1000;">
+        Open Modal
+      </button>
+      <div id="modal" style="position: fixed; top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);font-size: 24px; background-color: #ccc">
+        <p style="padding: 10px;">   Could you kindly provide the following information for data purposes? <br>
+            Full Name: <br>
+            Email Address: <br>
+            Contact Number: <br>
+            Course Inquiry: GT Foundation <br></p>
+            <button style="background-color: red;color: white;padding: 10px;" id="closeBtn">Close</button>
+      </div>
       
     <script src="script.js"></script>
 </body>
