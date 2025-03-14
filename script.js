@@ -21,12 +21,17 @@ backToTopButton.onclick = function () {
 
 const closebtn = document.getElementById("closeBtn");
 const modal = document.getElementById("modal");
+const container = document.querySelector("section");
 modal.style.display = "none";
 closebtn.addEventListener("click", () => {
     modal.style.display = "none"
+    container.style.display= "block"
+
 })
 
 const openModal = document.getElementById("openModal");
 openModal.addEventListener("click", () => {
     modal.style.display = "block";
+    container.style.display= "none"
+ 
 })
