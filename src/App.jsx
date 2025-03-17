@@ -106,13 +106,24 @@ function App() {
         </div>
 
         <Dialog open={!!open}>
-          <DialogTitle>Script messenger</DialogTitle>
+          <DialogTitle className='font-bold'>Script messenger</DialogTitle>
           <DialogContent>
             <h2>Could you kindly provide the following information for data purposes?</h2>
             <div>Full Name:</div>
             <div>Email Address:</div>
             <div>Contact Number:</div>
             <div>Course Inquiry: GT Foundation</div>
+            <br />
+            <hr />
+            <br />
+            <h1 className='font-bold'>Bulk Message Script</h1>
+            <br /><br />
+            <h2>Hey, future scholar! 👋</h2>
+            <p>Good news! We’ve got your details from the career talk you joined, and we’re super excited to have you in the loop! Thanks for your time and interest in our programs. </p>
+            <p>Our admissions are officially open, and if you’ve got questions or want to know more, hit us up anytime! 📲 Just message us at 0999-855-9880 (Smart) or 0945-398-7687 (Globe). We’re here to help you out! 💬</p>
+            <p>Let’s make your future happen! 🚀
+            </p>
+            <p>-MFI Polytechnic Institute Inc.</p>
           </DialogContent>
           <DialogActions>
             <Button onClick={() => setOpen(false)} color='primary' variant='contained'>
