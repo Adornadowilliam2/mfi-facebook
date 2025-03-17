@@ -43,7 +43,7 @@ function App() {
   };
 
   const [open, setOpen] = useState(false);
-
+  
   return (
     <Box className='p-[2rem]'>
       <h1 className='text-3xl'>FAQ Script Scenario in Facebook comments</h1>
@@ -88,11 +88,11 @@ function App() {
             </Box>
           </Box>
         ))}
-        
+
         {/* Back to Top Button */}
         {showButton && (
           <div className='bg-blue-900 fixed bottom-4 right-4'>
-            <Button 
+            <Button
               sx={{ color: 'white' }}
               onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
             >
@@ -109,15 +109,16 @@ function App() {
           <DialogTitle>Script messenger</DialogTitle>
           <DialogContent>
             <h2>Could you kindly provide the following information for data purposes?</h2>
-            <ul>
-              <li>Full Name:</li>
-              <li>Email Address:</li>
-              <li>Contact Number:</li>
-              <li>Course Inquiry: GT Foundation</li>
-            </ul>
+            <div>Full Name:</div>
+            <div>Email Address:</div>
+            <div>Contact Number:</div>
+            <div>Course Inquiry: GT Foundation</div>
           </DialogContent>
           <DialogActions>
-            <Button onClick={() => setOpen(false)} color='primary' variant='contained'>Close</Button>
+            <Button onClick={() => setOpen(false)} color='primary' variant='contained'>
+              Close
+            </Button>
+   
           </DialogActions>
         </Dialog>
       </Box>
