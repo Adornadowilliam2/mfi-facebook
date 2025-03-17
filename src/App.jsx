@@ -43,7 +43,7 @@ function App() {
   };
 
   const [open, setOpen] = useState(false);
-  
+
   return (
     <Box className='p-[2rem]'>
       <h1 className='text-3xl'>FAQ Script Scenario in Facebook comments</h1>
@@ -77,11 +77,11 @@ function App() {
                 <p className="text-red-500 font-bold">{item.enroll}</p>
               )}
               {item.steps && (
-                <ul>
+                <>
                   {item.steps.map((step, stepIndex) => (
-                    <li key={stepIndex}>{step}</li>
+                    <div key={stepIndex}>{step}</div>
                   ))}
-                </ul>
+                </>
               )}
               {item.cta && <p>{item.cta}</p>}
               {item.alt && <p>{item.alt}</p>}
@@ -118,7 +118,7 @@ function App() {
             <Button onClick={() => setOpen(false)} color='primary' variant='contained'>
               Close
             </Button>
-   
+
           </DialogActions>
         </Dialog>
       </Box>
