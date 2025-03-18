@@ -67,7 +67,7 @@ export const data = [
         paragraph:"Good day [Name of the Person] ! Unfortunately, we don’t have the course they specify, Perhaps [Give them alternatives related to that] course, which is related because it involves [explain how it become related]. Let us know if you need more details!"
     },
     {
-        question:"They have weekends in TESDA-TWSP",
+        question:"If we don't have weekends in TESDA-TWSP",
         paragraph:"Good day [Name of the Person] ! Unfortunately, we don’t offer weekend classes at TESDA. Our classes run for 7 to 8 hours a day on weekdays.",
         cta:"Please feel free to reach out to us for more details or information."
     },
