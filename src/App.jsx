@@ -5,32 +5,29 @@ import { Box, Button, Dialog, DialogActions, DialogContent, DialogTitle } from '
 
 function App() {
   const [selectedIndex, setSelectedIndex] = useState(null);
-  const [showButton, setShowButton] = useState(false); // State to control button visibility
+  const [showBtn, setShowBtn] = useState(false); 
 
-  // Scroll event handler
+
   const handleScroll = () => {
     if (window.scrollY > 100) {
-      setShowButton(true); // Show button if scrolled more than 100px
+      setShowBtn(true); 
     } else {
-      setShowButton(false); // Hide button if less than 100px
+      setShowBtn(false);
     }
   };
 
-  // Hook to add scroll event listener when component mounts
   useEffect(() => {
     window.addEventListener('scroll', handleScroll);
 
-    // Cleanup the event listener when the component unmounts
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
   }, []);
 
-  const renderBoldText = (text) => {
+  const changeBoldText = (text) => {
     const regex = /\[([^\]]+)\]/g;
-    const parts = text.split(regex);
 
-    return parts.map((part, index) => {
+    return text.split(regex).map((part, index) => {
       if (index % 2 !== 0) {
         return <span key={index} className="font-bold">{part}</span>;
       }
@@ -46,17 +43,17 @@ function App() {
 
   return (
     <Box className='p-[2rem]'>
-      <h1 className='text-3xl'>FAQ Script Scenario in Facebook comments</h1>
-      <p>Click the link to go to the script on how to answer it</p>
+      <h1 className='text-3xl  bg-gray-700 text-white p-2'>FAQ Script Scenario in Facebook comments</h1>
+      <p className='p-2'>Click the link to go to the script on how to answer it</p>
       <ol className='mb-2 text-2xl'>
         {data.map((item, index) => (
           <li key={index}>
             <a
-              className='text-blue-600 underline'
+              className='text-blue-600 '
               href={'#card' + index}
               onClick={() => handleQuestionClick(index)}
             >
-              {index + 1}. {item.question}
+              {index + 1}. <span className='underline'>{item.question}</span>
             </a>
           </li>
         ))}
@@ -71,7 +68,7 @@ function App() {
             </h2>
             <Box className='p-2 text-black'>
               <p className='text-lg mb-2'>
-                {renderBoldText(item.paragraph)}
+                {changeBoldText(item.paragraph)}
               </p>
               {item.enroll && (
                 <p className="text-red-500 font-bold">{item.enroll}</p>
@@ -90,7 +87,7 @@ function App() {
         ))}
 
         {/* Back to Top Button */}
-        {showButton && (
+        {showBtn && (
           <div className='bg-blue-900 fixed bottom-4 right-4'>
             <Button
               sx={{ color: 'white' }}
