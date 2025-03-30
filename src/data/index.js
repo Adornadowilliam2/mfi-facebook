@@ -73,7 +73,7 @@ export const data = [
     },
     {
         question:"How to enroll to the TESDA-TWSP?",
-        paragraph:'Thank you for your interest! To enroll, please click on the link below and fill out the form. If you need any assistance, feel free to reach out! https://forms.gle/7vJbxqDeWMaraBK26'
+        paragraph:'Thank you for your interest! To enroll, please click on the link below and fill out the form: https://forms.gle/7vJbxqDeWMaraBK26 . If you need any assistance, feel free to reach out! '
     },
     {
         question:"If the course is hybrid (online & face-on-face)",
