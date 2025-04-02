@@ -5,12 +5,12 @@ import { Box, Button, Dialog, DialogActions, DialogContent, DialogTitle } from '
 
 function App() {
   const [selectedIndex, setSelectedIndex] = useState(null);
-  const [showBtn, setShowBtn] = useState(false); 
+  const [showBtn, setShowBtn] = useState(false);
 
 
   const handleScroll = () => {
     if (window.scrollY > 100) {
-      setShowBtn(true); 
+      setShowBtn(true);
     } else {
       setShowBtn(false);
     }
@@ -38,6 +38,12 @@ function App() {
   const handleQuestionClick = (index) => {
     setSelectedIndex(index);
   };
+  const categories = [
+    { name: 'General Questions', range: [0, 4] },
+    { name: 'Short Course/Public Run Program', range: [5, 9] },
+    { name: 'GT Foundation', range: [10, 13] },
+    { name: 'TESDA', range: [14, 16] },
+  ];
 
   const [open, setOpen] = useState(false);
 
@@ -45,24 +51,42 @@ function App() {
     <Box className='p-[2rem]'>
       <h1 className='text-3xl  bg-gray-700 text-white p-2'>FAQ Script Scenario in Facebook comments</h1>
       <p className='p-2'>Click the link to go to the script on how to answer it</p>
-      <ol className='mb-2 text-2xl'>
-        {data.map((item, index) => (
-          <li key={index}>
-            <a
-              className='text-blue-600 '
-              href={'#card' + index}
-              onClick={() => handleQuestionClick(index)}
-            >
-              {index + 1}. <span className='underline'>{item.question}</span>
-            </a>
-          </li>
-        ))}
-      </ol>
+      <ul className='mb-2 text-2xl'>
+        {categories.map((category, categoryIndex) => {
+          // Filter questions that belong to the current category
+          const questionsInCategory = data.filter(
+            (_, index) => index >= category.range[0] && index <= category.range[1]
+          );
+
+          return (
+            <div key={categoryIndex}>
+              {/* Category Header */}
+              <h3 className='text-xl font-bold mt-4'>{category.name}:</h3>
+
+              {/* List Questions for this Category */}
+              <ul className='list-decimal ml-5'>
+                {questionsInCategory.map((item, index) => (
+                  <li key={index}>
+                    <a
+                      className='text-blue-600'
+                      href={'#card' + (category.range[0] + index)}
+                      onClick={() => handleQuestionClick(category.range[0] + index)}
+                    >
+                      <span className='underline'>{item.question}</span>
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          );
+        })}
+      </ul>
+
       <Box>
         {data.map((item, index) => (
           <Box key={index} id={'card' + index} className='bg-gray-50 mb-2'>
             <h2
-              className={`p-[10px] ${selectedIndex === index ? 'bg-green-300 text-black' : 'bg-blue-900 text-white'}`}
+              className={`p-[10px] ${selectedIndex === index ? 'bg-green-400 text-black' : 'bg-blue-900 text-white'}`}
             >
               {item.question}
             </h2>
@@ -90,7 +114,7 @@ function App() {
         {showBtn && (
           <div className='bg-blue-900 fixed bottom-4 right-4'>
             <Button
-              sx={{ color: 'white' }}
+              sx={{ color: 'white', background: "#007bff" }}
               onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
             >
               Back to Top
