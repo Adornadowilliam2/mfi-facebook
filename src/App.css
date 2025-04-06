@@ -1,3 +1,17 @@
 html {
   scroll-behavior: smooth;
 }
+
+#edit-form{
+  width: 900px;
+  max-width: 100%;
+ 
+}
+
+@media only screen and (max-width: 767px) {
+  #edit-form{
+    width: 100%;
+  }
+}
+
+

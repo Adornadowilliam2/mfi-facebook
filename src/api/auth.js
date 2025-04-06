@@ -1,7 +1,43 @@
 import { url } from "./configuration";
 
-export const insert = async (token) => {
-  const reponse = await fetch(`${url}/faq/insert`, {
+export const register = async (body) => {
+  const response = await fetch(`${url}/register`, {
+    method: "POST",
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(body),
+  });
+  return await response.json();
+};
+
+export const login = async (body) => {
+  const response = await fetch(`${url}/login`, {
+    method: "POST",
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(body),
+  });
+  return await response.json();
+};
+
+export const logout = async (token) => {
+  const response = await fetch(`${url}/logout`, {
+    method: "POST",
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${token}`,
+    },
+  });
+  return await response.json();
+};
+
+export const checkToken = async (token) => {
+  const response = await fetch(`${url}/checkToken`, {
     method: "GET",
     headers: {
       Accept: "application/json",
@@ -9,44 +45,6 @@ export const insert = async (token) => {
       Authorization: `Bearer ${token}`,
     },
   });
-  return await reponse.json();
-};
 
-export const retrieve = async (body, token) => {
-  const reponse = await fetch(`${url}/faq/retrieve`, {
-    method: "POST",
-    headers: {
-      Accept: "application/json",
-      "Content-Type": "application/json",
-      Authorization: `Bearer ${token}`,
-    },
-    body: JSON.stringify(body),
-  });
-  return await reponse.json();
-};
-
-
-export const update = async (body, token, id) => {
-  const reponse = await fetch(`${url}/faq/update/${id}?_method=PATCH`, {
-    method: "POST",
-    headers: {
-      Accept: "application/json",
-      "Content-Type": "application/json",
-      Authorization: `Bearer ${token}`,
-    },
-    body: JSON.stringify(body),
-  });
-  return await reponse.json();
-};
-
-export const destroy = async (token, id) => {
-  const reponse = await fetch(`${url}/faq/${id}`, {
-    method: "DELETE",
-    headers: {
-      Accept: "application/json",
-      "Content-Type": "application/json",
-      Authorization: `Bearer ${token}`,
-    },
-  });
-  return await reponse.json();
+  return await response.json();
 };
