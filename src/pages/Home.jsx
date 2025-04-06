@@ -167,7 +167,7 @@ export default function Home() {
                             <Box
                                 key={item.id}
                                 id={`card${index}`} 
-                                className="bg-gray-50 mb-2"
+                                className="bg-gray-300 mb-2"
                             >
                                 <h2
                                     className={`p-[10px] ${selectedIndex === index ? 'bg-green-400 text-black' : 'bg-blue-900 text-white'}`}>
