@@ -55,15 +55,6 @@ export default function Home() {
         ));
     };
 
-    const changeBoldText = (text) => {
-        const regex = /\[([^\]]+)\]/g;
-        return text.split(regex).map((part, index) => {
-            if (index % 2 !== 0) {
-                return <span key={index} className="font-bold">{part}</span>;
-            }
-            return part;
-        });
-    };
 
 
 
